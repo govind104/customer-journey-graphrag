@@ -317,6 +317,14 @@ See [README_DEPLOYMENT.md](README_DEPLOYMENT.md) for HuggingFace Spaces and loca
 
 > **HuggingFace Spaces Note:** When deploying to HF Spaces, use `README.md` (contains required YAML frontmatter). This file (`README_GITHUB.md`) is the canonical GitHub documentation.
 
+## Limitations & Future Work
+
+- **Scale & infra:** This prototype runs on NetworkX with ~5k users / 85k events to keep it inspectable. A production system at 10M+ users / billions of edges would use a graph database (e.g., Neo4j, TigerGraph, DGraph) or a distributed graph engine, plus sharded storage and caching for hot subgraphs.
+
+- **Evaluation:** The comparison is qualitative and based on real query outputs. A next step would be to define a held-out query set and measure retrieval precision@k and human-rated answer usefulness for GraphRAG vs vector RAG.
+
+- **Latency & monitoring:** Latencies here are acceptable for an interactive demo (~1–2s including LLM), but the prototype does not include explicit `/metrics` or production monitoring. In a real system, I'd log per-stage timings (graph traversal, embedding, LLM) and expose them via a metrics endpoint.
+
 ## License
 
 MIT
