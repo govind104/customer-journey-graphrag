@@ -14,7 +14,7 @@ Upload these files to your HF Space repository:
 
 ```
 your-space/
-├── README.md           # HF Spaces version (with YAML frontmatter)
+├── README.md           # HF Spaces version (README_HFSpaces.md, with YAML frontmatter)
 ├── Dockerfile          # Docker build configuration
 ├── requirements.txt    # Python dependencies
 ├── start.sh            # Startup script
