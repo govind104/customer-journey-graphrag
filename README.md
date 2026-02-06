@@ -315,7 +315,7 @@ See [`docs/query_results.md`](docs/query_results.md) for complete GraphRAG vs Na
 
 See [README_DEPLOYMENT.md](README_DEPLOYMENT.md) for HuggingFace Spaces and local Docker deployment instructions.
 
-> **HuggingFace Spaces Note:** When deploying to HF Spaces, use `README.md` (contains required YAML frontmatter). This file (`README_GITHUB.md`) is the canonical GitHub documentation.
+> **HuggingFace Spaces Note:** When deploying to HF Spaces, use `README_HFSpaces.md` (contains required YAML frontmatter). This file (`README.md`) is the canonical GitHub documentation.
 
 ## Limitations & Future Work
 
