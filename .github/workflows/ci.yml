@@ -23,7 +23,9 @@ jobs:
         uses: astral-sh/setup-uv@v4
 
       - name: Install dependencies
-        run: uv sync --dev
+        run: |
+          uv sync
+          uv pip install pytest ruff
 
       - name: Run Ruff linter
         run: uv run ruff check src/ tests/
