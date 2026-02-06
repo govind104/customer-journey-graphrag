@@ -1,0 +1,98 @@
+# ============================================================================
+# Customer Journey GraphRAG - .gitignore
+# ============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env.local
+
+# Environment files (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# ============================================================================
+# Project-specific: Generated data and artifacts (large files)
+# ============================================================================
+
+# Generated data (users should run generate_data.py locally)
+data/*.csv
+
+# Graph and index artifacts (users should build locally or download)
+graph/*.pkl
+
+# Keep directory structure
+!data/.gitkeep
+!graph/.gitkeep
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Lock files (optional - uv.lock is large, up to preference)
+uv.lock
+
+# PRD and planning docs (internal only)
+PRD.txt
