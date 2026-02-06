@@ -158,6 +158,8 @@ Open <http://localhost:8501> in your browser.
 | medium | 50% | $150 | 30% | 3-7 events/session, 30% purchase prob |
 | low | 35% | $30 | 60% | 1-4 events/session, 10% purchase prob |
 
+> **Production Note:** This demo uses synthetic data. For real-world deployment, replace with actual clickstream data from Snowplow, Segment, or Amplitude via Airbyte/Fivetran ETL pipelines.
+
 ## Verified Results (Actual System Output)
 
 *Tested on synthetic e-commerce data: 5,000 users, 85,529 events across 20,000 sessions*
