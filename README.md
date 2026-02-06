@@ -2,6 +2,10 @@
 
 **TL;DR:** A prototype demonstrating how Graph-enhanced RAG outperforms vector RAG for product/journey analytics by leveraging temporal user behavior graphs.
 
+## 🚀 Live Demo
+
+**[Try it on HuggingFace Spaces →](https://huggingface.co/spaces/govind23nampoothiri/customer-journey-graphrag)**
+
 ## Problem
 
 Product teams ask questions like:
@@ -194,6 +198,32 @@ Open <http://localhost:8501> in your browser.
 
 **Winner:** GraphRAG ✅  
 **Key difference:** GraphRAG provides direct comparative stats: **5.72 vs 2.31 events/session**, **8.0% vs 1.9% conversion**, **4 vs 1 purchases** — quantifying the behavioral gap between cohorts.
+
+---
+
+### Query 4: "Why do users drop off after viewing fashion products?"
+
+**Naive RAG:**
+> Users who view fashion products tend to exit after viewing multiple times without adding to cart... The provided data only includes 10 sessions, which may not be representative of the entire user base.
+
+**GraphRAG:**
+> The most common exit patterns are `search → exit` (9 occurrences, 9.0%) and `page_view → exit` (9 occurrences, 9.0%). These patterns indicate users are dropping off at the earliest stages. Page_view is a common pre-exit event (9 occurrences), and search appears before exit in 7.0% of journeys.
+
+**Winner:** GraphRAG ✅  
+**Key difference:** GraphRAG is explicit about data limits and provides **global exit patterns** (`search → exit` and `page_view → exit` each at 9.0%) rather than over-fitting a small sample.
+
+---
+
+### Query 5: "What does the conversion funnel look like?"
+
+**Naive RAG:**
+> 100% of users start with page_view. 60% click on a category. 40% add to cart. 20% complete a purchase. The funnel drops significantly at "Add to Cart" stage.
+
+**GraphRAG:**
+> 60% of exiting users drop off immediately after a search. `search → exit` accounts for 18% of exits, `search → page_view` for 6%. Only 2% of exiting users click on a product after searching.
+
+**Winner:** GraphRAG ✅  
+**Key difference:** GraphRAG derives drop-off from aggregated path frequencies, showing **60% drop immediately after search** and pinpointing search as the dominant funnel leak.
 
 ---
 
