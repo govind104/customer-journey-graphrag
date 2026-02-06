@@ -9,14 +9,13 @@ import networkx as nx
 import pandas as pd
 import pytest
 
+from src.naive_rag import session_to_document
 from src.retrieval import (
     extract_journey_pattern,
     extract_user_journeys,
     find_common_patterns,
     get_user_context,
 )
-from src.naive_rag import session_to_document
-
 
 # ============================================================================
 # Fixtures

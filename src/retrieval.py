@@ -9,8 +9,6 @@ from collections import Counter
 from typing import Any, Literal
 
 import networkx as nx
-import pandas as pd
-
 
 # ============================================================================
 # User Journey Extraction

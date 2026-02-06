@@ -6,7 +6,7 @@ churn journeys, and browse behaviors for different user segments.
 """
 
 import random
-from datetime import datetime, timedelta
+from datetime import timedelta
 from pathlib import Path
 from typing import Any
 
@@ -317,9 +317,6 @@ def generate_events(
     """
     all_events: list[dict[str, Any]] = []
     event_id = 0
-
-    # Create user lookup for fast access
-    user_lookup = users_df.set_index("user_id").to_dict("index")
 
     for session_id in range(num_sessions):
         # Sample user (high-value users have more sessions)
