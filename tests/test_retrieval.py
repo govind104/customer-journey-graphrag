@@ -147,28 +147,34 @@ def churned_user_graph() -> nx.DiGraph:
 @pytest.fixture
 def sample_dataframes():
     """Create sample DataFrames for naive RAG testing."""
-    users_df = pd.DataFrame({
-        "user_id": [1],
-        "segment": ["high_value"],
-        "ltv": [500.0],
-        "churned": [False],
-    })
+    users_df = pd.DataFrame(
+        {
+            "user_id": [1],
+            "segment": ["high_value"],
+            "ltv": [500.0],
+            "churned": [False],
+        }
+    )
 
-    events_df = pd.DataFrame({
-        "event_id": [1, 2, 3],
-        "session_id": [1, 1, 1],
-        "user_id": [1, 1, 1],
-        "event_type": ["page_view", "click", "purchase"],
-        "timestamp": ["2026-01-01T10:00:00", "2026-01-01T10:01:00", "2026-01-01T10:02:00"],
-        "product_id": [None, 1, 1],
-    })
+    events_df = pd.DataFrame(
+        {
+            "event_id": [1, 2, 3],
+            "session_id": [1, 1, 1],
+            "user_id": [1, 1, 1],
+            "event_type": ["page_view", "click", "purchase"],
+            "timestamp": ["2026-01-01T10:00:00", "2026-01-01T10:01:00", "2026-01-01T10:02:00"],
+            "product_id": [None, 1, 1],
+        }
+    )
 
-    products_df = pd.DataFrame({
-        "product_id": [1],
-        "name": ["Test Product"],
-        "category": ["Electronics"],
-        "price": [99.99],
-    })
+    products_df = pd.DataFrame(
+        {
+            "product_id": [1],
+            "name": ["Test Product"],
+            "category": ["Electronics"],
+            "price": [99.99],
+        }
+    )
 
     return users_df, events_df, products_df
 

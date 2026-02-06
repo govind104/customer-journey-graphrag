@@ -69,9 +69,7 @@ class JourneyLLM:
         self.api_key = api_key or os.getenv("GROQ_API_KEY")
 
         if not self.api_key:
-            raise ValueError(
-                "GROQ_API_KEY not found. Set it in .env file or pass directly."
-            )
+            raise ValueError("GROQ_API_KEY not found. Set it in .env file or pass directly.")
 
         self.model = model
         self.client = Groq(api_key=self.api_key)

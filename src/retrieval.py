@@ -44,9 +44,7 @@ def extract_user_journeys(
     journeys = []
 
     # Get all sessions for this user
-    sessions = [
-        n for n in G.successors(user_node) if G.nodes[n].get("node_type") == "Session"
-    ]
+    sessions = [n for n in G.successors(user_node) if G.nodes[n].get("node_type") == "Session"]
 
     for session_node in sessions[:max_sessions]:
         session_data = G.nodes[session_node]
@@ -407,9 +405,7 @@ def compare_cohorts(
             "avg_ltv": round(avg_ltv, 2),
             "purchase_events": purchase_count,
             "cart_add_events": cart_add_count,
-            "conversion_rate": round(
-                purchase_count / len(sessions) * 100 if sessions else 0, 1
-            ),
+            "conversion_rate": round(purchase_count / len(sessions) * 100 if sessions else 0, 1),
         }
 
     cohort_a_stats = analyze_cohort(cohort_a_filter)
@@ -420,8 +416,7 @@ def compare_cohorts(
         cohort_b_name: cohort_b_stats,
         "comparison": {
             "events_diff": round(
-                cohort_a_stats["avg_events_per_session"]
-                - cohort_b_stats["avg_events_per_session"],
+                cohort_a_stats["avg_events_per_session"] - cohort_b_stats["avg_events_per_session"],
                 2,
             ),
             "ltv_diff": round(cohort_a_stats["avg_ltv"] - cohort_b_stats["avg_ltv"], 2),
@@ -671,9 +666,9 @@ def serialize_journeys_for_llm(
         lines.append("\n### Statistics:")
         lines.append(f"- Total journeys analyzed: {len(journeys)}")
         lines.append(f"- Average events per session: {avg_events:.1f}")
-        lines.append("- Event distribution: " + ", ".join(
-            f"{k}: {v}" for k, v in event_types.most_common(5)
-        ))
+        lines.append(
+            "- Event distribution: " + ", ".join(f"{k}: {v}" for k, v in event_types.most_common(5))
+        )
 
     return "\n".join(lines)
 
@@ -777,9 +772,7 @@ def query_high_vs_low_ltv(G: nx.DiGraph) -> str:
     low_patterns = find_common_patterns(G, {"segment": "low"}, limit=50)
 
     comparison_text = serialize_comparison_for_llm(comparison)
-    high_pattern_text = serialize_patterns_for_llm(
-        high_patterns, "high-value user patterns"
-    )
+    high_pattern_text = serialize_patterns_for_llm(high_patterns, "high-value user patterns")
     low_pattern_text = serialize_patterns_for_llm(low_patterns, "low-value user patterns")
 
     return f"{comparison_text}\n\n{high_pattern_text}\n\n{low_pattern_text}"
@@ -831,9 +824,7 @@ def query_category_exit_analysis(G: nx.DiGraph, category: str) -> str:
 
     lines = [f"## Exit Analysis for {category} Category\n"]
     lines.append(f"- Users who exited after viewing {category}: {exit_data['exits_after_viewing']}")
-    lines.append(
-        f"- Average events before exit: {exit_data['avg_events_before_exit']}"
-    )
+    lines.append(f"- Average events before exit: {exit_data['avg_events_before_exit']}")
 
     lines.append("\n### Last event type before exit:")
     for event_type, count in exit_data["last_event_before_exit"].items():

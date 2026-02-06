@@ -320,9 +320,7 @@ def generate_events(
 
     for session_id in range(num_sessions):
         # Sample user (high-value users have more sessions)
-        segment_weights = users_df["segment"].map(
-            {"high_value": 3.0, "medium": 1.5, "low": 1.0}
-        )
+        segment_weights = users_df["segment"].map({"high_value": 3.0, "medium": 1.5, "low": 1.0})
         user_row = users_df.sample(1, weights=segment_weights).iloc[0]
 
         user_id = int(user_row["user_id"])
@@ -378,8 +376,8 @@ def generate_all(output_dir: str | Path = "data") -> dict[str, pd.DataFrame]:
     segment_counts = users_df["segment"].value_counts()
     print(f"  ✓ Created {len(users_df)} users:")
     for seg, count in segment_counts.items():
-        print(f"    - {seg}: {count} ({count/len(users_df)*100:.1f}%)")
-    print(f"  ✓ Churn rate: {users_df['churned'].mean()*100:.1f}%")
+        print(f"    - {seg}: {count} ({count / len(users_df) * 100:.1f}%)")
+    print(f"  ✓ Churn rate: {users_df['churned'].mean() * 100:.1f}%")
 
     # Generate events
     print("\n[3/3] Generating events...")
@@ -390,7 +388,7 @@ def generate_all(output_dir: str | Path = "data") -> dict[str, pd.DataFrame]:
     event_counts = events_df["event_type"].value_counts()
     print("\n  Event distribution:")
     for event_type, count in event_counts.items():
-        print(f"    - {event_type}: {count} ({count/len(events_df)*100:.1f}%)")
+        print(f"    - {event_type}: {count} ({count / len(events_df) * 100:.1f}%)")
 
     # Calculate metrics
     conversion_sessions = events_df[events_df["event_type"] == "purchase"]["session_id"].nunique()
