@@ -236,8 +236,8 @@ graphrag-customer-journey/
 ├── start.sh                # Container startup script
 ├── .env.example            # API key template
 ├── .gitignore              # Excludes data/, graph/*.pkl, .env
-├── README.md               # HF Spaces version (with YAML frontmatter)
-├── README_GITHUB.md        # This file (full documentation)
+├── README_HFSpaces.md      # HF Spaces version (with YAML frontmatter)
+├── README.md               # This file (full documentation)
 ├── README_DEPLOYMENT.md    # Docker & HF Spaces deployment guide
 ├── docs/
 │   └── query_results.md    # Full GraphRAG vs Naive RAG comparison
