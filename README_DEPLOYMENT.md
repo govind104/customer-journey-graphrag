@@ -32,7 +32,7 @@ your-space/
     └── naive_rag_index.pkl    # Pre-built FAISS index (~100MB)
 ```
 
-> **Note:** `README_GITHUB.md` is for your GitHub repository, not HF Spaces.
+> **Note:** `README.md` is for your GitHub repository, not HF Spaces.
 
 ## Deployment Steps
 
