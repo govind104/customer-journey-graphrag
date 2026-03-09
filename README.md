@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-**[Try it on HuggingFace Spaces →](https://huggingface.co/spaces/govind23nampoothiri/customer-journey-graphrag)**
+**[Try it on HuggingFace Spaces](https://huggingface.co/spaces/govind23nampoothiri/customer-journey-graphrag)**
 
 ## Problem
 
